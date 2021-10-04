@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet var table : UITableView!
     
-    let APIkey = "15ff0a67eb35717051bf4b5833252310"
+    let APIkey = "your API key" 
     
     var models = [Daily]()
     let locationManager = CLLocationManager()
@@ -84,8 +84,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let lat = currentLocation.coordinate.latitude
         
         let url = "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(long)&appid=\(APIkey)&units=metric"
-        
-//        let url = "https://api.openweathermap.org/data/2.5/onecall?lat=55.54858796008388&lon=37.53487069813419&appid=\(APIkey)&units=metric"
         
         URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
             
