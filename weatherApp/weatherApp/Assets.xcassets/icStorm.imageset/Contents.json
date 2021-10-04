@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "2995010_cloud_flash_weather_rain_snow_icon-2.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "2995010_cloud_flash_weather_rain_snow_icon-3.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "2995010_cloud_flash_weather_rain_snow_icon.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
