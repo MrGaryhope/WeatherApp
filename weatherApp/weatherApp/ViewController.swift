@@ -36,7 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet var table : UITableView!
     
-    let APIkey = "your API key" 
+    let APIkey = "15ff0a67eb35717051bf4b5833252310" 
     
     var models = [Daily]()
     let locationManager = CLLocationManager()
