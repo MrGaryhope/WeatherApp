@@ -22,12 +22,14 @@ enum Icon: String, Codable {
     case the04N = "04n" // overcast clouds
     case the10N = "10n" // rain
     case the10D = "10d" // rain
+    case the13D = "13d" // snow
+    case the13N = "13n" // snow
 }
 enum Main: String, Codable {
     case clear = "Clear", clouds = "Clouds", rain = "Rain", snow = "Snow"
 }
 enum Description: String, Codable {
-    case clearSky = "clear sky", fewClouds = "few clouds", scatteredClouds = "scattered clouds", brokenClouds = "broken clouds", lightRain = "light rain", overcastClouds = "overcast clouds", heavyIntensityRain = "heavy intensity rain", moderateRain = "moderate rain"
+    case clearSky = "clear sky", fewClouds = "few clouds", scatteredClouds = "scattered clouds", brokenClouds = "broken clouds", lightRain = "light rain", overcastClouds = "overcast clouds", heavyIntensityRain = "heavy intensity rain", moderateRain = "moderate rain", light_snow = "light snow", snow = "snow", rainAndSnow = "rain and snow"
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
@@ -85,7 +87,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let url = "https://api.openweathermap.org/data/2.5/onecall?lat=\(lat)&lon=\(long)&appid=\(APIkey)&units=metric"
         
-//        let url = "https://api.openweathermap.org/data/2.5/onecall?lat=55.54858796008388&lon=37.53487069813419&appid=\(APIkey)&units=metric"
+
+//        let url = "https://api.openweathermap.org/data/2.5/onecall?lat=68.044326&lon=25.911087&appid=\(APIkey)&units=metric"
+
+        print(url)
         
         URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: {data, response, error in
             
@@ -125,16 +130,46 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let locationLabel = UILabel(frame: CGRect(x: 10, y: 10, width: headerView.frame.size.width - 20, height: headerView.frame.size.height / 5))
         let summaryLabel = UILabel(frame: CGRect(x: 10, y: 5 + locationLabel.frame.size.height, width: headerView.frame.size.width - 20, height: headerView.frame.size.height / 5))
+        let imageView = UIImageView(frame: CGRect(x: headerView.frame.size.width / 2.75, y: 20 + summaryLabel.frame.size.height + locationLabel.frame.size.height, width: 100, height: headerView.frame.size.height / 2))
         let tempLabel = UILabel(frame: CGRect(x: 10, y: 20 + summaryLabel.frame.size.height + locationLabel.frame.size.height, width: headerView.frame.size.width - 20, height: headerView.frame.size.height / 2))
         
         let tempSummary = self.currentWeather!.weather.map { ($0 ).main }
 
+        let decidedIcon = self.currentWeather!.weather.map { ($0 ).icon }
+        
+        if (decidedIcon.contains(Icon.the01D)) {
+            imageView.image = UIImage(named: "icClear")
+        } else if (decidedIcon.contains(Icon.the01N)) {
+            imageView.image = UIImage(named: "icClear")
+        } else if (decidedIcon.contains(Icon.the02D)) {
+            imageView.image = UIImage(named: "icCloudy")
+        } else if (decidedIcon.contains(Icon.the02N)) {
+            imageView.image = UIImage(named: "icCloudy")
+        } else if (decidedIcon.contains(Icon.the03D)) {
+            imageView.image = UIImage(named: "icCloud")
+        } else if (decidedIcon.contains(Icon.the03N)) {
+            imageView.image = UIImage(named: "icCloud")
+        } else if (decidedIcon.contains(Icon.the04N)) {
+            imageView.image = UIImage(named: "icCloud")
+        } else if (decidedIcon.contains(Icon.the04D)) {
+            imageView.image = UIImage(named: "icCloud")
+        } else if (decidedIcon.contains(Icon.the10N)) {
+            imageView.image = UIImage(named: "icRain")
+        } else if (decidedIcon.contains(Icon.the10D)) {
+            imageView.image = UIImage(named: "icRain")
+        } else if (decidedIcon.contains(Icon.the13D)) {
+            imageView.image = UIImage(named: "icSnow")
+        }
+        
+        
         headerView.addSubview(locationLabel)
         headerView.addSubview(summaryLabel)
+        headerView.addSubview(imageView)
         headerView.addSubview(tempLabel)
         
         locationLabel.textAlignment = .center
         summaryLabel.textAlignment = .center
+        imageView.contentMode = .scaleAspectFill
         tempLabel.textAlignment = .center
         
         locationLabel.font = UIFont(name: "Helvetica Bold", size: 25)

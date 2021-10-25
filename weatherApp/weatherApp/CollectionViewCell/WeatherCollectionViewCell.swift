@@ -41,6 +41,8 @@ class WeatherCollectionViewCell: UICollectionViewCell {
             self.iconImageView.image = UIImage(named: "icRain")
         } else if (decidedIcon.contains(Icon.the10D)) {
             self.iconImageView.image = UIImage(named: "icRain")
+        } else if (decidedIcon.contains(Icon.the13D)) {
+            self.iconImageView.image = UIImage(named: "icSnow")
         }
         
         self.hourLabel.text = "\(getDayForDate(Date(timeIntervalSince1970: Double(model.dt))))"

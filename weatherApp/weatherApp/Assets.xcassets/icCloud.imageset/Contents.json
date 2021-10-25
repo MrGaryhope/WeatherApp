@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "2995000_cloud_weather_cloudy_rain_sun_icon-2.png",
+      "filename" : "cloud.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "2995000_cloud_weather_cloudy_rain_sun_icon-3.png",
+      "filename" : "cloud-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "2995000_cloud_weather_cloudy_rain_sun_icon.png",
+      "filename" : "cloud-3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "2995005_sun_sunny_yellow_weather_beach_icon-2.png",
+      "filename" : "sun-3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "2995005_sun_sunny_yellow_weather_beach_icon-3.png",
+      "filename" : "sun-2.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "2995005_sun_sunny_yellow_weather_beach_icon.png",
+      "filename" : "sun.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
